@@ -9,9 +9,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 
-Bundle 'jnurmine/Zenburn'
+
 Bundle 'quanganhdo/grb256'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'ciaranm/detectindent'
@@ -25,8 +24,9 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'mileszs/ack.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'danro/rename.vim'
-Bundle 'zeis/vim-kolor' 
+Bundle 'zeis/vim-kolor'
 Bundle 'vim-scripts/Tabmerge'
+Bundle 'ggreer/the_silver_searcher'
 
 
 
@@ -89,6 +89,10 @@ nnoremap <silent> <C-D> :NERDTreeToggle<CR>
 
 " Autosaving and Line numbers
 au VimResized,FocusLost,BufLeave * silent! wa
+
+
+" Using Ag with ack.vim
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 
 " Sweet pane handling

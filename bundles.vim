@@ -1,6 +1,6 @@
 syntax on
 set nocompatible
-filetype off
+filetype on
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -27,14 +27,17 @@ Bundle 'danro/rename.vim'
 Bundle 'zeis/vim-kolor'
 Bundle 'vim-scripts/Tabmerge'
 Bundle 'ggreer/the_silver_searcher'
-
+Bundle 'Raimondi/delimitMate'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
 
 
 filetype plugin indent on
 
 set autoindent            " set auto indent
-set ts=2                  " set indent to 2 spaces
-set shiftwidth=2
+set expandtab
+set tabstop=2 shiftwidth=2 softtabstop=2
 set foldmethod=syntax
 set expandtab             " use spaes, not tab characters
 set nocompatible          " dont need to be compatible with old vim

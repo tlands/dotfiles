@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="miloshadzic"
+ZSH_THEME="sorin"
 
 # kphoen, miloshadzic, sorin
 
@@ -21,7 +21,7 @@ POWERLINE_GIT_RENAMED="➜"
 POWERLINE_GIT_UNMERGED="═"
 
 alias s="source"
-
+alias ssh-smp="ssh -i smpdev.pem smpdev@noc01.smp.cx"
 # rework git pull to git pull --rebase
 
 alias gpr="git pull --rebase"

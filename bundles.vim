@@ -21,7 +21,6 @@ Bundle 'tpope/vim-rake'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'godlygeek/tabular'
 Bundle 'scrooloose/nerdtree'
-Bundle 'mileszs/ack.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'danro/rename.vim'
 Bundle 'zeis/vim-kolor'
@@ -31,6 +30,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
+Bundle "rking/ag.vim"
 
 
 filetype plugin indent on
@@ -64,8 +64,11 @@ set eol
 set noswapfile										" disable .swp files creation in vim
 
 " set dark background and color scheme
-" set background=dark
-colorscheme grb256
+set background=dark
+colorscheme vimbrant
+
+highlight ColorColumn ctermbg=7
+highlight ColorColumn guibg=Gray
 " set up some custom colors
 highlight StatusLine   ctermbg=3 ctermfg=0
 highlight IncSearch    ctermbg=0   ctermfg=3

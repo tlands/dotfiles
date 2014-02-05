@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="sorin"
+ZSH_THEME="miloshadzic"
 
 # kphoen, miloshadzic, sorin
 
@@ -25,6 +25,21 @@ alias ssh-smp="ssh -i smpdev.pem smpdev@noc01.smp.cx"
 # rework git pull to git pull --rebase
 
 alias gpr="git pull --rebase"
+
+
+# A bash function to display a growl notification using iTerm's magic
+# escape sequence. This version will work under screen.
+
+growl() {
+      local msg="\\e]9;\n\n${*}\\007"
+      case $TERM in
+        screen*)
+          echo -ne '\eP'${msg}'\e\\' ;;
+        *)
+          echo -ne ${msg} ;;
+      esac
+      return
+}
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -100,3 +115,5 @@ alias upvim="vim -u ~/.bundles.vim +BundleInstall! +q"
 alias upz="upgrade_oh_my_zsh"
 
 DEFAULT_USER=`whoami`
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

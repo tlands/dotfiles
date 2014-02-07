@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="miloshadzic"
+ZSH_THEME="sorin"
 
 # kphoen, miloshadzic, sorin
 
@@ -26,7 +26,9 @@ alias ssh-smp="ssh -i smpdev.pem smpdev@noc01.smp.cx"
 
 alias gpr="git pull --rebase"
 
-
+# For Older version of OpenSSL located in /usr/local/openssl
+export PATH=/usr/local/openssl/bin:$PATH
+export MANPATH=/usr/local/openssl/ssl/man:$MANPATH
 # A bash function to display a growl notification using iTerm's magic
 # escape sequence. This version will work under screen.
 
@@ -85,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/Users/tlandon/.rvm/gems/ruby-1.9.3-p484@digital/bin:/Users/tlandon/.rvm/gems/ruby-1.9.3-p484@global/bin:/Users/tlandon/.rvm/rubies/ruby-1.9.3-p484/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/Users/tlandon/.rvm/gems/ruby-1.9.3-p484@digital/bin:/Users/tlandon/.rvm/gems/ruby-1.9.3-p484@global/bin:/Users/tlandon/.rvm/rubies/ruby-1.9.3-p484/bin:/usr/local/openssl/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions

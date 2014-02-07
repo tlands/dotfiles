@@ -6,4 +6,4 @@ alias vim="reattach-to-user-namespace vim"
 
 
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=/usr/local/openssl/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

@@ -7,10 +7,5 @@ let g:kolor_underlined=0             " Enable underline. Default: 0
 let g:kolor_alternative_matchparen=0 " Gray 'MatchParen' color. Default: 0
 
 set background=dark
-
-colorscheme kolor
-
-set guifont=PragmataPro:h14
-
 " Better line-height
 set linespace=8

@@ -10,11 +10,9 @@ Bundle 'gmarik/vundle'
 
 
 
-Bundle 'quanganhdo/grb256'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/syntastic'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'vim-ruby/vim-ruby'
@@ -29,6 +27,10 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle "rking/ag.vim"
+Bundle 'steffanc/ack.vim'
+Bundle "bling/vim-airline"
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'flazz/vim-colorschemes'
 
 
 filetype plugin indent on
@@ -42,6 +44,7 @@ set nocompatible          " dont need to be compatible with old vim
 set encoding=utf-8
 set smartindent
 set smarttab
+set cursorline cursorcolumn       " crosshairs"
 set relativenumber                " show relative line numbers
 set showmatch                     " show bracket matches
 set ignorecase                    " ignore case in search
@@ -60,10 +63,31 @@ set clipboard=unnamed             " use the system clipboard
 set wildmenu                      " enable bash style tab completion
 set eol
 set noswapfile										" disable .swp files creation in vim
+if has('cmdline_info')
+      set ruler                   " Show the ruler
+          set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
+                                          " Selected characters/lines in
+                                          " visual mode
+endif
+set splitright                  " Puts new vsplit windows to the right of the current
+set splitbelow                  " Puts new split windows to the bottom of the current" 
+
+" No annoying sound on errors
+ set noerrorbells
+ set novisualbell
+ set t_vb=
+ set tm=500
 
 " set dark background and color scheme
 set background=dark
-colorscheme vimbrant
+" Syntax and colours
+ syntax enable
+ if $TERM == "xterm-256color"
+   set t_Co=256
+   colorscheme wombat256mod
+ else
+   colorscheme solarized
+ endif
 
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
@@ -84,15 +108,11 @@ let mapleader = " "
 inoremap jj <ESC>
 
 " ctrlp config
-let g:ctrlp_map = '<leader>f'
-let g:ctrlp_max_height = 30
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_match_window_reversed = 0
-nnoremap <leader>v :CtrlPClearCache<cr> <cr>
-nnoremap <silent> <C-D> :NERDTreeToggle<CR>
 
 " Autosaving and Line numbers
 au VimResized,FocusLost,BufLeave * silent! wa
+" command to generate index for ctags
+nnoremap <Leader>sr :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .; cscope -bR;<cr><cr> 
 
 
 " Using Ag with ack.vim
@@ -108,3 +128,64 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 map ff <c-w><c-w>
 map <leader>\ <c-W>=
+
+if has('gui_running')
+  set vb
+  set guioptions-=T
+  set guioptions-=r
+  set go-=L
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+endif
+
+" Leader tricks
+let mapleader=','
+if has('gui_running')
+  nnoremap <Leader>w :set expandtab<cr>:%retab<cr>:w<cr>
+else
+  nnoremap <Leader>w :w<cr>
+endif
+nnoremap <Leader>q :q<cr>
+nnoremap <Leader>d :sh<cr>
+
+" ctags commands
+nnoremap <Leader>st :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap <Leader>sv :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap <Leader>sh :sp <CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap <Leader>sr :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .; cscope -bR;<cr><cr>
+
+
+
+
+" Use the arrows to change buffers
+map <right> :bn<cr>
+map <left> :bp<cr>
+
+" Ctrl-P
+let g:ctrlp_max_height = 30
+let g:ctrlp_match_window_reversed = 0
+nnoremap <leader>v :CtrlPClearCache<cr> <cr>
+nnoremap <silent> <C-D> :NERDTreeToggle<CR>
+
+ let g:ctrlp_map = '<c-p>'
+ let g:ctrlp_working_path_mode = 'ra'
+ let g:ctrlp_use_caching = 1
+ let g:ctrlp_custom_ignore = {
+     \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+         \ 'file': '\v\.(exe|so|dll|pyc|os|swp|orig|out|bak)$'}
+if executable("ag")
+      let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+endif
+nnoremap <Leader>ff :Ack! 
+nnoremap <Leader>fw #*:AckFromSearch!<CR>
+" search selection
+vmap <Leader>ff /##*:AckFromSearch!<CR>
+
+" Airline plugin
+ let g:airline_theme='badwolf'
+ let g:airline_detect_modified=1
+ let g:airline_powerline_fonts=1
+ let g:airline#extensions#tabline#enabled = 1
+ let g:airline_section_x = airline#section#create([])
+ let g:airline_section_y = airline#section#create([])
+  
+

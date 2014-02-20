@@ -81,13 +81,13 @@ set splitbelow                  " Puts new split windows to the bottom of the cu
 " set dark background and color scheme
 set background=dark
 " Syntax and colours
- syntax enable
- if $TERM == "xterm-256color"
-   set t_Co=256
-   colorscheme wombat256mod
- else
-   colorscheme solarized
- endif
+syntax enable
+if $TERM == "xterm-256color"
+  set t_Co=256
+  colorscheme wombat256mod
+else
+  colorscheme solarized
+endif
 
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray

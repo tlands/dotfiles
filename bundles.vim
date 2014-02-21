@@ -30,6 +30,7 @@ Bundle "rking/ag.vim"
 Bundle 'steffanc/ack.vim'
 Bundle "bling/vim-airline"
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'airblade/vim-gitgutter'
 Bundle 'flazz/vim-colorschemes'
 
 
@@ -110,17 +111,10 @@ inoremap jj <ESC>
 nnoremap <Leader>q :q<cr>
 nnoremap <Leader>d :sh<cr>
 
-" ctrlp config
-
 " Autosaving and Line numbers
 au VimResized,FocusLost,BufLeave * silent! wa
 " command to generate index for ctags
 nnoremap <Leader>sr :!ctags -R .; cscope -bR;<cr><cr>
-
-
-" Using Ag with ack.vim
-let g:ackprg = 'ag --nogroup --nocolor --column'
-
 
 " Sweet pane handling
 nnoremap <leader>w :vsplit<cr>
@@ -157,10 +151,7 @@ endif
 nnoremap <Leader>st :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 nnoremap <Leader>sv :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 nnoremap <Leader>sh :sp <CR>:exec("tag ".expand("<cword>"))<CR>
-nnoremap <Leader>sr :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .; cscope -bR;<cr><cr>
-
-
-
+nnoremap <Leader>sr :!ctags -R .; cscope -bR;<cr><cr>
 
 " Use the arrows to change buffers
 map <right> :bn<cr>
@@ -171,13 +162,14 @@ let g:ctrlp_max_height = 30
 let g:ctrlp_match_window_reversed = 0
 nnoremap <leader>v :CtrlPClearCache<cr> <cr>
 nnoremap <silent> <C-D> :NERDTreeToggle<CR>
-
  let g:ctrlp_map = '<c-p>'
  let g:ctrlp_working_path_mode = 'ra'
  let g:ctrlp_use_caching = 1
  let g:ctrlp_custom_ignore = {
      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
          \ 'file': '\v\.(exe|so|dll|pyc|os|swp|orig|out|bak)$'}
+" Using Ag with ack.vim
+let g:ackprg = 'ag --nogroup --nocolor --column'
 if executable("ag")
       let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
 endif
@@ -193,5 +185,3 @@ vmap <Leader>ff /##*:AckFromSearch!<CR>
  let g:airline#extensions#tabline#enabled = 1
  let g:airline_section_x = airline#section#create([])
  let g:airline_section_y = airline#section#create([])
-
-

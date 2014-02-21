@@ -63,6 +63,7 @@ set clipboard=unnamed             " use the system clipboard
 set wildmenu                      " enable bash style tab completion
 set eol
 set noswapfile										" disable .swp files creation in vim
+set tags=./tags,tags;$HOME
 if has('cmdline_info')
       set ruler                   " Show the ruler
           set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
@@ -137,6 +138,11 @@ if has('gui_running')
   set guioptions-=r
   set go-=L
   set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+endif
+
+if bufwinnr(1)
+  map + <C-W>+
+  map - <C-W>-
 endif
 
 " Leader tricks

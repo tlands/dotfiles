@@ -54,8 +54,8 @@ set smartcase                     " pay attention to case when caps are used
 set incsearch                     " show search results as I type
 set mouse=a                       " enable mouse support
 set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
-set vb                            " enable visual bell (disable audio bell)
 set ruler                         " show row and column in footer
+set winheight=30
 set scrolloff=2                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
 set nofoldenable                  " disable code folding
@@ -65,13 +65,13 @@ set eol
 set noswapfile										" disable .swp files creation in vim
 set tags=./tags,tags;$HOME
 if has('cmdline_info')
-      set ruler                   " Show the ruler
-          set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-                                          " Selected characters/lines in
-                                          " visual mode
+  set ruler                   " Show the ruler
+  set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
+  " Selected characters/lines in
+  " visual mode
 endif
 set splitright                  " Puts new vsplit windows to the right of the current
-set splitbelow                  " Puts new split windows to the bottom of the current" 
+set splitbelow                  " Puts new split windows to the bottom of the current"
 
 " No annoying sound on errors
  set noerrorbells
@@ -115,7 +115,7 @@ nnoremap <Leader>d :sh<cr>
 " Autosaving and Line numbers
 au VimResized,FocusLost,BufLeave * silent! wa
 " command to generate index for ctags
-nnoremap <Leader>sr :!ctags -R .; cscope -bR;<cr><cr> 
+nnoremap <Leader>sr :!ctags -R .; cscope -bR;<cr><cr>
 
 
 " Using Ag with ack.vim
@@ -181,7 +181,7 @@ nnoremap <silent> <C-D> :NERDTreeToggle<CR>
 if executable("ag")
       let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
 endif
-nnoremap <Leader>ff :Ack! 
+nnoremap <Leader>ff :Ack!
 nnoremap <Leader>fw #*:AckFromSearch!<CR>
 " search selection
 vmap <Leader>ff /##*:AckFromSearch!<CR>
@@ -193,5 +193,5 @@ vmap <Leader>ff /##*:AckFromSearch!<CR>
  let g:airline#extensions#tabline#enabled = 1
  let g:airline_section_x = airline#section#create([])
  let g:airline_section_y = airline#section#create([])
-  
+
 

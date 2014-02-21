@@ -115,7 +115,7 @@ nnoremap <Leader>d :sh<cr>
 " Autosaving and Line numbers
 au VimResized,FocusLost,BufLeave * silent! wa
 " command to generate index for ctags
-nnoremap <Leader>sr :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .; cscope -bR;<cr><cr> 
+nnoremap <Leader>sr :!ctags -R .; cscope -bR;<cr><cr> 
 
 
 " Using Ag with ack.vim

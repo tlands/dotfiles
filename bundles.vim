@@ -106,6 +106,8 @@ endif
 " set leader key to space instead of \ and map jj to esc
 let mapleader = " "
 inoremap jj <ESC>
+nnoremap <Leader>q :q<cr>
+nnoremap <Leader>d :sh<cr>
 
 " ctrlp config
 
@@ -144,8 +146,6 @@ if has('gui_running')
 else
   nnoremap <Leader>w :w<cr>
 endif
-nnoremap <Leader>q :q<cr>
-nnoremap <Leader>d :sh<cr>
 
 " ctags commands
 nnoremap <Leader>st :tab split<CR>:exec("tag ".expand("<cword>"))<CR>

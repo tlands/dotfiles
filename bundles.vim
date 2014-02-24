@@ -114,7 +114,7 @@ nnoremap <Leader>d :sh<cr>
 " Autosaving and Line numbers
 au VimResized,FocusLost,BufLeave * silent! wa
 " command to generate index for ctags
-nnoremap <Leader>sr :!ctags -R .; cscope -bR;<cr><cr>
+" nnoremap <Leader>sr :!ctags -R .pe -bR;<cr><cr>
 
 " Sweet pane handling
 nnoremap <leader>w :vsplit<cr>
@@ -140,7 +140,7 @@ if bufwinnr(1)
 endif
 
 " Leader tricks
-let mapleader=','
+" let mapleader=','
 if has('gui_running')
   nnoremap <Leader>w :set expandtab<cr>:%retab<cr>:w<cr>
 else
@@ -160,7 +160,7 @@ map <left> :bp<cr>
 " Ctrl-P
 let g:ctrlp_max_height = 30
 let g:ctrlp_match_window_reversed = 0
-nnoremap <leader>v :CtrlPClearCache<cr> <cr>
+nnoremap <leader><leader>c :CtrlPClearCache<cr> <cr>
 nnoremap <silent> <C-D> :NERDTreeToggle<CR>
  let g:ctrlp_map = '<c-p>'
  let g:ctrlp_working_path_mode = 'ra'

@@ -111,13 +111,27 @@ inoremap jj <ESC>
 nnoremap <Leader>q :q<cr>
 nnoremap <Leader>d :sh<cr>
 
+" Vi navigation, bitch
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnext<Space>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
+
+nnoremap <leader>bd :bd<cr>
+
+
+
 " Autosaving and Line numbers
 au VimResized,FocusLost,BufLeave * silent! wa
 " command to generate index for ctags
 " nnoremap <Leader>sr :!ctags -R .pe -bR;<cr><cr>
 
 " Sweet pane handling
-nnoremap <leader>w :vsplit<cr>
+nnoremap <leader>v :vsplit<cr>
 nnoremap <leader>h :split<cr>
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -177,6 +191,10 @@ nnoremap <Leader>ff :Ack!
 nnoremap <Leader>fw #*:AckFromSearch!<CR>
 " search selection
 vmap <Leader>ff /##*:AckFromSearch!<CR>
+
+"snipmate
+imap <C-e> <esc>a<Plug>snipMateNextOrTrigger
+smap <C-e> <Plug>snipMateNextOrTrigger
 
 " Airline plugin
  let g:airline_theme='badwolf'

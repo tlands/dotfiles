@@ -35,7 +35,7 @@ Bundle 'flazz/vim-colorschemes'
 
 
 filetype plugin indent on
-
+set shell=/bin/bash
 set autoindent            " set auto indent
 set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=2
@@ -165,8 +165,7 @@ endif
 nnoremap <Leader>st :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 nnoremap <Leader>sv :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 nnoremap <Leader>sh :sp <CR>:exec("tag ".expand("<cword>"))<CR>
-nnoremap <Leader>sr :!ctags -R .; cscope -bR;<cr><cr>
-
+nnoremap <Leader>sr :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .; cscope -bR;<cr><cr>
 " Use the arrows to change buffers
 map <right> :bn<cr>
 map <left> :bp<cr>

@@ -26,8 +26,11 @@ alias ssh-smp="ssh -i smpdev.pem smpdev@noc01.smp.cx"
 
 alias gpr="git pull --rebase"
 
+alias ctags="`brew --prefix`/bin/ctags"
+
 # For Older version of OpenSSL located in /usr/local/openssl
 export PATH=/usr/local/openssl/bin:$PATH
+export PATH=/usr/local/bin/ctags:$PATH
 export MANPATH=/usr/local/openssl/ssl/man:$MANPATH
 # A bash function to display a growl notification using iTerm's magic
 # escape sequence. This version will work under screen.

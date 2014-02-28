@@ -9,29 +9,41 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 
-
+" Ctrl-p
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'scrooloose/syntastic'
+" tpope the man, the myth, the ledge
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'godlygeek/tabular'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
+"Nerd 
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+" Misc
+Bundle 'scrooloose/syntastic'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'danro/rename.vim'
 Bundle 'vim-scripts/Tabmerge'
-Bundle 'ggreer/the_silver_searcher'
 Bundle 'Raimondi/delimitMate'
+Bundle 'airblade/vim-gitgutter'
+" Snippets
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
+Bundle "honza/vim-snippets"
+" Search Ag/Ack
 Bundle "rking/ag.vim"
 Bundle 'steffanc/ack.vim'
+Bundle 'ggreer/the_silver_searcher'
+" Airline
 Bundle "bling/vim-airline"
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'airblade/vim-gitgutter'
+" colors
 Bundle 'flazz/vim-colorschemes'
+" Experiemental
+" Bundle 'terryma/vim-multiple-cursors'
 
 
 filetype plugin indent on
@@ -196,7 +208,7 @@ imap <C-e> <esc>a<Plug>snipMateNextOrTrigger
 smap <C-e> <Plug>snipMateNextOrTrigger
 
 " Airline plugin
- let g:airline_theme='badwolf'
+ let g:airline_theme='luna'
  let g:airline_detect_modified=1
  let g:airline_powerline_fonts=1
  let g:airline#extensions#tabline#enabled = 1

@@ -29,6 +29,7 @@ Bundle 'danro/rename.vim'
 Bundle 'vim-scripts/Tabmerge'
 Bundle 'Raimondi/delimitMate'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'zhaocai/GoldenView.vim'
 " Snippets
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
@@ -99,7 +100,7 @@ syntax enable
 if $TERM == "xterm-256color"
   set t_Co=256
   colorscheme wombat256mod
-else
+ else
   colorscheme solarized
 endif
 
@@ -154,6 +155,7 @@ map <leader>\ <c-W>=
 
 if has('gui_running')
   set vb
+  colorscheme base16-ocean
   set guioptions-=T
   set guioptions-=r
   set go-=L
@@ -207,8 +209,9 @@ vmap <Leader>ff /##*:AckFromSearch!<CR>
 imap <C-e> <esc>a<Plug>snipMateNextOrTrigger
 smap <C-e> <Plug>snipMateNextOrTrigger
 
+
 " Airline plugin
- let g:airline_theme='luna'
+ let g:airline_theme='wombat'
  let g:airline_detect_modified=1
  let g:airline_powerline_fonts=1
  let g:airline#extensions#tabline#enabled = 1

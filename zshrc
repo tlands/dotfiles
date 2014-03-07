@@ -8,6 +8,10 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # kphoen, miloshadzic, sorin
+# Base16 Shell
+ BASE16_SCHEME="default"
+ BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
+ [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
 
 POWERLINE_DETECT_SSH="true"

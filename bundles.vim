@@ -23,6 +23,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 " Misc
+Bundle 'vim-scripts/AutoTag'
 Bundle 'scrooloose/syntastic'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'danro/rename.vim'
@@ -59,6 +60,7 @@ set encoding=utf-8
 set smartindent
 set smarttab
 set cursorline cursorcolumn       " crosshairs"
+set number
 set relativenumber                " show relative line numbers
 set showmatch                     " show bracket matches
 set ignorecase                    " ignore case in search
@@ -75,8 +77,17 @@ set laststatus=2                  " always show status bar
 set nofoldenable                  " disable code folding
 set clipboard=unnamed             " use the system clipboard
 set wildmenu                      " enable bash style tab completion
+set wildmode=list:longest,full
 set eol
 set noswapfile										" disable .swp files creation in vim
+set backspace=indent,eol,start
+set nobackup
+set nowb
+set wrap
+set linebreak
+set nolist
+set textwidth=0
+set wrapmargin=0
 set tags=./tags,tags;$HOME
 if has('cmdline_info')
   set ruler                   " Show the ruler
@@ -118,6 +129,11 @@ if version >= 700
   au InsertLeave * hi StatusLine ctermbg=3 ctermfg=0
 endif
 
+
+"YCM
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+
 " set leader key to space instead of \ and map jj to esc
 let mapleader = " "
 inoremap jj <ESC>
@@ -136,7 +152,11 @@ nnoremap td  :tabclose<CR>
 
 nnoremap <leader>bd :bd<cr>
 
-
+" GoldenView
+let g:goldenview__enable_default_mapping = 0
+" 3. jump to next and previous window
+nmap <silent> <C-N>  <Plug>GoldenViewNext
+nmap <silent> <C-O>  <Plug>GoldenViewPrevious
 
 " Autosaving and Line numbers
 au VimResized,FocusLost,BufLeave * silent! wa
@@ -189,21 +209,26 @@ let g:ctrlp_max_height = 30
 let g:ctrlp_match_window_reversed = 0
 nnoremap <leader><leader>c :CtrlPClearCache<cr> <cr>
 nnoremap <silent> <C-D> :NERDTreeToggle<CR>
- let g:ctrlp_map = '<c-p>'
- let g:ctrlp_working_path_mode = 'ra'
- let g:ctrlp_use_caching = 1
- let g:ctrlp_custom_ignore = {
-     \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-         \ 'file': '\v\.(exe|so|dll|pyc|os|swp|orig|out|bak)$'}
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_use_caching = 1
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+      \ 'file': '\v\.(exe|so|dll|pyc|os|swp|orig|out|bak)$'}
 " Using Ag with ack.vim
 let g:ackprg = 'ag --nogroup --nocolor --column'
 if executable("ag")
       let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
 endif
 nnoremap <Leader>ff :Ack!
+" map Silver Searcher
+ map <leader>a :Ag!<space>
 nnoremap <Leader>fw #*:AckFromSearch!<CR>
 " search selection
 vmap <Leader>ff /##*:AckFromSearch!<CR>
+
+" White space, delete from file!
+ map <leader>W :%s/\s\+$//gce \| w<cr>
 
 "snipmate
 imap <C-e> <esc>a<Plug>snipMateNextOrTrigger

@@ -31,6 +31,8 @@ Bundle 'vim-scripts/Tabmerge'
 Bundle 'Raimondi/delimitMate'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'zhaocai/GoldenView.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'amirh/HTML-AutoCloseTag'
 " Snippets
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
@@ -157,7 +159,15 @@ let g:goldenview__enable_default_mapping = 0
 " 3. jump to next and previous window
 nmap <silent> <C-N>  <Plug>GoldenViewNext
 nmap <silent> <C-O>  <Plug>GoldenViewPrevious
+" 1. split to tiled windows
+nmap <silent> <C-L>  <Plug>GoldenViewSplit
+" 2. quickly switch current window with the main pane
+" " and toggle back
+nmap <silent> <F8>   <Plug>GoldenViewSwitchMain
+nmap <silent> <S-F8> <Plug>GoldenViewSwitchToggle
 
+" Tag bar
+nmap <F5> :TagbarToggle<CR>
 " Autosaving and Line numbers
 au VimResized,FocusLost,BufLeave * silent! wa
 " command to generate index for ctags
@@ -204,11 +214,14 @@ nnoremap <Leader>sr :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .; cscope
 map <right> :bn<cr>
 map <left> :bp<cr>
 
+" NERD Tree
+nnoremap <leader><leader>r  :NERDTreeToggle<CR>
+
+
 " Ctrl-P
 let g:ctrlp_max_height = 30
 let g:ctrlp_match_window_reversed = 0
 nnoremap <leader><leader>c :CtrlPClearCache<cr> <cr>
-nnoremap <silent> <C-D> :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_use_caching = 1
@@ -234,6 +247,12 @@ vmap <Leader>ff /##*:AckFromSearch!<CR>
 imap <C-e> <esc>a<Plug>snipMateNextOrTrigger
 smap <C-e> <Plug>snipMateNextOrTrigger
 
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 " Airline plugin
  let g:airline_theme='wombat'

@@ -33,6 +33,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'zhaocai/GoldenView.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'amirh/HTML-AutoCloseTag'
+Bundle 'thoughtbot/vim-rspec'
 " Snippets
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
@@ -168,6 +169,9 @@ nmap <silent> <S-F8> <Plug>GoldenViewSwitchToggle
 
 " Tag bar
 nmap <F5> :TagbarToggle<CR>
+" vertical resize windows... and stuff
+nmap <F6> :vertical resize +5<CR>
+nmap <F7> :vertical resize -5<CR>
 " Autosaving and Line numbers
 au VimResized,FocusLost,BufLeave * silent! wa
 " command to generate index for ctags
@@ -182,6 +186,14 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 map ff <c-w><c-w>
 map <leader>\ <c-W>=
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+let g:rspec_runner = "os_x_iterm"
+
 
 if has('gui_running')
   set vb
@@ -235,7 +247,7 @@ if executable("ag")
 endif
 nnoremap <Leader>ff :Ack!
 " map Silver Searcher
- map <leader>a :Ag!<space>
+nnoremap <leader>aa :Ag!<space>
 nnoremap <Leader>fw #*:AckFromSearch!<CR>
 " search selection
 vmap <Leader>ff /##*:AckFromSearch!<CR>
@@ -253,6 +265,16 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+
+" Tabularize
+if exists(":Tabularize")
+  nmap <leader>a= :Tabularize /=<CR>
+  vmap <leader>a= :Tabularize /=<CR>
+  nmap <leader>a> :Tabularize /=><CR>
+  vmap <leader>a> :Tabularize /=><CR>
+  nmap <leader>a:  :Tabularize /:\zs<CR>
+  vmap <leader>a:  :Tabularize /:\zs<CR>
+endif
 
 " Airline plugin
  let g:airline_theme='wombat'

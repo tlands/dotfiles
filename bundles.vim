@@ -23,16 +23,13 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 " Misc
-Bundle 'vim-scripts/AutoTag'
+Bundle 'amirh/HTML-AutoCloseTag'
 Bundle 'scrooloose/syntastic'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'danro/rename.vim'
 Bundle 'vim-scripts/Tabmerge'
 Bundle 'Raimondi/delimitMate'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'zhaocai/GoldenView.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'amirh/HTML-AutoCloseTag'
 Bundle 'thoughtbot/vim-rspec'
 " Snippets
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -133,10 +130,6 @@ if version >= 700
 endif
 
 
-"YCM
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
-
 " set leader key to space instead of \ and map jj to esc
 let mapleader = " "
 inoremap jj <ESC>
@@ -172,10 +165,6 @@ nmap <F5> :TagbarToggle<CR>
 " vertical resize windows... and stuff
 nmap <F6> :vertical resize +5<CR>
 nmap <F7> :vertical resize -5<CR>
-" Autosaving and Line numbers
-au VimResized,FocusLost,BufLeave * silent! wa
-" command to generate index for ctags
-" nnoremap <Leader>sr :!ctags -R .pe -bR;<cr><cr>
 
 " Sweet pane handling
 nnoremap <leader>v :vsplit<cr>
@@ -258,13 +247,6 @@ vmap <Leader>ff /##*:AckFromSearch!<CR>
 "snipmate
 imap <C-e> <esc>a<Plug>snipMateNextOrTrigger
 smap <C-e> <Plug>snipMateNextOrTrigger
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 " Tabularize
 if exists(":Tabularize")

@@ -1,23 +1,23 @@
-" Base16 Eighties (https://github.com/chriskempson/base16)
-" Scheme: Chris Kempson (http://chriskempson.com)
+" Base16 Grayscale (https://github.com/chriskempson/base16)
+" Scheme: Alexandre Gavioli (https://github.com/Alexx2/)
 
 " GUI color definitions
-let s:gui00 = "2d2d2d"
-let s:gui01 = "393939"
-let s:gui02 = "515151"
-let s:gui03 = "747369"
-let s:gui04 = "a09f93"
-let s:gui05 = "d3d0c8"
-let s:gui06 = "e8e6df"
-let s:gui07 = "f2f0ec"
-let s:gui08 = "f2777a"
-let s:gui09 = "f99157"
-let s:gui0A = "ffcc66"
-let s:gui0B = "99cc99"
-let s:gui0C = "66cccc"
-let s:gui0D = "6699cc"
-let s:gui0E = "cc99cc"
-let s:gui0F = "d27b53"
+let s:gui00 = "101010"
+let s:gui01 = "252525"
+let s:gui02 = "464646"
+let s:gui03 = "525252"
+let s:gui04 = "ababab"
+let s:gui05 = "b9b9b9"
+let s:gui06 = "e3e3e3"
+let s:gui07 = "f7f7f7"
+let s:gui08 = "7c7c7c"
+let s:gui09 = "999999"
+let s:gui0A = "a0a0a0"
+let s:gui0B = "8e8e8e"
+let s:gui0C = "868686"
+let s:gui0D = "686868"
+let s:gui0E = "747474"
+let s:gui0F = "5e5e5e"
 
 " Terminal color definitions
 let s:cterm00 = "00"
@@ -49,7 +49,7 @@ endif
 " Theme setup
 hi clear
 syntax reset
-let g:colors_name = "base16-eighties"
+let g:colors_name = "base16-grayscale"
 
 " Highlighting function
 fun <sid>hi(group, guifg, guibg, ctermfg, ctermbg, attr)

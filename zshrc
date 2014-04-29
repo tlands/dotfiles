@@ -5,10 +5,10 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="sorin"
+ZSH_THEME="simple"
 
 # kphoen, miloshadzic, sorin
-# Base16 Shell
+# Base16 Shell, simple, agnoster, fishy, flazz
  #BASE16_SCHEME="default"
  #BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
  #[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
@@ -88,7 +88,7 @@ growl() {
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby sublime rails bundler zsh-syntax-highlighting)
+plugins=(tmux git ruby sublime rails bundler zsh-syntax-highlighting zsh-history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 

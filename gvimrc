@@ -7,7 +7,7 @@
 "
 set background=dark
 " Better line-height
-set linespace=8
+set linespace=2
 set fuoptions=maxvert,maxhorz
 au GUIEnter * set fullscreen
 set vb

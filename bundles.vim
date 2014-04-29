@@ -19,7 +19,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
-"Nerd 
+"Nerd
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 " Misc
@@ -31,6 +31,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'zhaocai/GoldenView.vim'
 Bundle 'thoughtbot/vim-rspec'
+Bundle 'paranoida/vim-airlineish'
 " Snippets
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
@@ -52,22 +53,25 @@ filetype plugin indent on
 set shell=/bin/bash
 set autoindent            " set auto indent
 set expandtab
+set hidden
 set tabstop=2 shiftwidth=2 softtabstop=2
 set foldmethod=syntax
-set expandtab             " use spaes, not tab characters
-set nocompatible          " dont need to be compatible with old vim
 set encoding=utf-8
-set smartindent
-set smarttab
-set cursorline cursorcolumn       " crosshairs"
 set number
 set relativenumber                " show relative line numbers
 set showmatch                     " show bracket matches
 set ignorecase                    " ignore case in search
 set hlsearch                      " highlight all search matches
-set cursorline                    " highlight current line
+set title
+set showcmd
+set scrolloff=3
+set binary
+set noeol
+set incsearch
 set smartcase                     " pay attention to case when caps are used
 set incsearch                     " show search results as I type
+set history=1000
+runtime macros/matchit.vim
 set mouse=a                       " enable mouse support
 set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
 set ruler                         " show row and column in footer
@@ -79,13 +83,14 @@ set clipboard=unnamed             " use the system clipboard
 set wildmenu                      " enable bash style tab completion
 set wildmode=list:longest,full
 set eol
-set noswapfile										" disable .swp files creation in vim
+set noswapfile                    " disable .swp files creation in vim
 set backspace=indent,eol,start
 set nobackup
 set nowb
-set wrap
+set nowrap
 set linebreak
 set nolist
+set linespace=1
 set textwidth=0
 set wrapmargin=0
 set tags=./tags,tags;$HOME
@@ -110,7 +115,7 @@ set background=dark
 syntax enable
 if $TERM == "xterm-256color"
   set t_Co=256
-  colorscheme wombat256mod
+  colorscheme solarized
  else
   colorscheme solarized
 endif
@@ -118,7 +123,7 @@ endif
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
 " set up some custom colors
-highlight StatusLine   ctermbg=3 ctermfg=0
+highlight StatusLine   ctermbg=240 ctermfg=12
 highlight IncSearch    ctermbg=0   ctermfg=3
 highlight Search       ctermbg=0   ctermfg=9
 highlight SpellBad     ctermbg=0   ctermfg=1
@@ -135,6 +140,12 @@ let mapleader = " "
 inoremap jj <ESC>
 nnoremap <Leader>q :q<cr>
 nnoremap <Leader>d :sh<cr>
+
+" key to switch of search term highligting
+nmap <silent> <leader>n :silent :nohlsearch<CR>
+
+" catch trailing whitespace
+nmap <silent> <leader>m :set nolist!<CR>
 
 " Vi navigation, bitch
 nnoremap th  :tabfirst<CR>
@@ -186,7 +197,7 @@ let g:rspec_runner = "os_x_iterm"
 
 if has('gui_running')
   set vb
-  colorscheme base16-ocean
+  colorscheme base16-chalk
   set guioptions-=T
   set guioptions-=r
   set go-=L
@@ -250,18 +261,19 @@ smap <C-e> <Plug>snipMateNextOrTrigger
 
 " Tabularize
 if exists(":Tabularize")
-  nmap <leader>a= :Tabularize /=<CR>
-  vmap <leader>a= :Tabularize /=<CR>
-  nmap <leader>a> :Tabularize /=><CR>
-  vmap <leader>a> :Tabularize /=><CR>
-  nmap <leader>a:  :Tabularize /:\zs<CR>
-  vmap <leader>a:  :Tabularize /:\zs<CR>
+  nmap <leader>e= :Tabularize /=<CR>
+  vmap <leader>e= :Tabularize /=<CR>
+  nmap <leader>e> :Tabularize /=><CR>
+  vmap <leader>e> :Tabularize /=><CR>
+  nmap <leader>e:  :Tabularize /:\zs<CR>
+  vmap <leader>e:  :Tabularize /:\zs<CR>
 endif
 
 " Airline plugin
- let g:airline_theme='wombat'
+ let g:airline_theme='airlineish'
  let g:airline_detect_modified=1
  let g:airline_powerline_fonts=1
  let g:airline#extensions#tabline#enabled = 1
+ let g:airline_detect_whitespace=0
  let g:airline_section_x = airline#section#create([])
  let g:airline_section_y = airline#section#create([])

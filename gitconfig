@@ -6,7 +6,7 @@
 	df = diff --color --color-words --abbrev
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 [color]
-	ui = always
+	ui = auto
 [core]
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
@@ -21,8 +21,8 @@
 	old = red bold
 	new = green bold
 [color "status"]
-	added = blue 
-	changed = green
+	added = green 
+	changed = red bold
 	untracked = cyan
 [merge]
 	log = true
@@ -52,5 +52,4 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[branch]
-	autosetuprebase = always
+

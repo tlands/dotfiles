@@ -1,11 +1,13 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+
 # man zshoptions for zsh options...
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="simple"
+ZSH_THEME="sorin"
+# simple
 
 # kphoen, miloshadzic, sorin
 # Base16 Shell, simple, agnoster, fishy, flazz
@@ -16,19 +18,24 @@ ZSH_THEME="simple"
 
 POWERLINE_DETECT_SSH="true"
 POWERLINE_GIT_CLEAN="✔"
-POWERLINE_GIT_DIRTY="✘"
-POWERLINE_GIT_ADDED="%F{green}✚%F{black}"
-POWERLINE_GIT_MODIFIED="%F{blue}∆%F{black}"
-POWERLINE_GIT_DELETED="%F{red}✖%F{black}"
-POWERLINE_GIT_UNTRACKED="%F{yellow}✭%F{black}"
+#POWERLINE_GIT_ADDED="%F{green}✚%F{black}"
+#POWERLINE_GIT_MODIFIED="%F{blue}∆%F{black}"
+#POWERLINE_GIT_DELETED="%F{red}✖%F{black}"
+#POWERLINE_GIT_UNTRACKED="%F{yellow}✭%F{black}"
 POWERLINE_GIT_RENAMED="➜"
 POWERLINE_GIT_UNMERGED="═"
-
+POWERLINE_DETECT_SSH="true"
+POWERLINE_DISABLE_RPROMPT="true"
+POWERLINE_HIDE_USER_NAME="true"
+POWERLINE_HIDE_HOST_NAME="true"
+POWERLINE_NO_BLANK_LINE="true"
+POWERLINE_RIGHT_B="none"
 alias s="source"
 alias ssh-smp="ssh -i smpdev.pem smpdev@noc01.smp.cx"
 # rework git pull to git pull --rebase
 
 alias gpr="git pull --rebase"
+alias rake="noglob rake"
 
 alias ctags="`brew --prefix`/bin/ctags"
 
@@ -88,15 +95,15 @@ growl() {
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(tmux git ruby sublime rails bundler zsh-syntax-highlighting zsh-history-substring-search)
+plugins=(rake redis-cli tmux git ruby sublime rails bundler zsh-syntax-highlighting zsh-history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/Users/tlandon/.rvm/gems/ruby-1.9.3-p484@digital/bin:/Users/tlandon/.rvm/gems/ruby-1.9.3-p484@global/bin:/Users/tlandon/.rvm/rubies/ruby-1.9.3-p484/bin:/usr/local/openssl/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
+export PATH="/Users/tlandon/.rvm/gems/ruby-1.9.3-p484@digital/bin:/Users/tlandon/.rvm/gems/ruby-1.9.3-p484@global/bin:/Users/tlandon/.rvm/rubies/ruby-1.9.3-p484/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+#export PATH=/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:$PATH
+VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7/site-packages/virtualenvwrapper
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -114,7 +121,6 @@ export PATH="/Users/tlandon/.rvm/gems/ruby-1.9.3-p484@digital/bin:/Users/tlandon
 . ~/code/z/z.sh
 
 # Add pygmentized cat
-alias cat='pygmentize -g'
 
 # Update and bundle install for Vundle/Vim
 alias upvim="vim -u ~/.bundles.vim +BundleInstall! +q"
@@ -123,6 +129,8 @@ alias upvim="vim -u ~/.bundles.vim +BundleInstall! +q"
 
 alias upz="upgrade_oh_my_zsh"
 
-DEFAULT_USER=`whoami`
+#DEFAULT_USER=`whoami`
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+
